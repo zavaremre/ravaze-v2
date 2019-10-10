@@ -10,39 +10,36 @@
  */
 
 /* ========================= Gulp ========================= */
-const gulp = require('gulp'),
-    /* ========================= Sass ========================= */
-    sass = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    cssmin = require('gulp-cssmin'),
- 
+const gulp = require('gulp')
+/* ========================= Sass ========================= */
+sass = require('gulp-sass')
+autoprefixer = require('gulp-autoprefixer')
+cssmin = require('gulp-cssmin')
 
 /* ========================= Babel ========================= */
-    babel = require('gulp-babel'),
- 
+babel = require('gulp-babel')
 
-    /* ========================= Image ========================= */
-    imagemin = require('gulp-imagemin'),
+/* ========================= Image ========================= */
+imagemin = require('gulp-imagemin')
 
-    /* ========================= File Name & Includes ========================= */
-    rename = require('gulp-rename'),
-    include = require('gulp-include')
+/* ========================= File Name & Includes ========================= */
+rename = require('gulp-rename')
+include = require('gulp-include')
 
 /* ========================= Eror Reporting ========================= */
-
-
+del = require('del')
 /* ========================= Compaile & Server ========================= */
 
-    gulpif = require('gulp-if'),
-    sequence = require('run-sequence'),
-    liveServer = require("live-server"),
+gulpif = require('gulp-if')
+sequence = require('run-sequence')
+liveServer = require("live-server")
 
-    /**
-     * Output Css & Js File Name and Set Paths
-     * -----------------------------------------------------------------------------
-     */
+/*
+ * Output Css & Js File Name and Set Paths
+ * -----------------------------------------------------------------------------
+ */
 
-    demo = false, //Minified file include
+demo = false, //Minified file include
     ThemeName = 'theme',
     path = {
         base: './',
@@ -51,19 +48,16 @@ const gulp = require('gulp'),
     };
 
 
+gulp.task('copy', function () {
+    //Select files
+    return gulp.src(path.developmentDir + '/fonts/**')
+        //Save files
+        .pipe(gulp.dest(path.base + path.productionDir + '/assets/fonts'));
+});
 
- 
 
-    gulp.task('copy', function () {
-        //Select files
-        return gulp.src(path.developmentDir + '/fonts/**')
-            //Save files
-            .pipe(gulp.dest(path.base + path.productionDir + '/assets/fonts'));
-    });
 
-    
 
- 
 
 gulp.task('include', function () {
     gulp.src(path.developmentDir + '/html/**')
@@ -219,7 +213,7 @@ gulp.task('pluginsJS', function () {
         //Save unminified file
         .pipe(gulpif(!demo, gulp.dest(path.base + path.productionDir + '/assets/js')))
         //Optimize and minify
-       
+
         //Append suffix
         .pipe(rename({
             suffix: '.min'
@@ -250,7 +244,7 @@ gulp.task('bootstrapJS', function () {
         //Save unminified file
         .pipe(gulpif(!demo, gulp.dest(path.base + path.productionDir + '/assets/js')))
         //Optimize and minify
-      
+
         //Append suffix
         .pipe(rename({
             suffix: '.min'
@@ -258,12 +252,33 @@ gulp.task('bootstrapJS', function () {
         //Save minified file
         .pipe(gulp.dest(path.base + path.productionDir + '/assets/js'));
 });
+/**
+ * Delete Production files
+ * -----------------------------------------------------------------------------
+ */
+gulp.task('delete', function () {
+    return del([path.base + path.productionDir + '/lib/footer',
+        path.base + path.productionDir + '/lib/header',
+        path.base + path.productionDir + '/lib/modals',
+        path.base + path.productionDir + '/lib/product',
+        path.base + path.productionDir + '/lib/css.html',
+        path.base + path.productionDir + '/lib/script.html',
+        path.base + path.productionDir + '/assets/css/.min',
+        path.base + path.productionDir + '/assets/css/colors.css',
+        path.base + path.productionDir + '/assets/css/colors.min.css',
+        path.base + path.productionDir + '/assets/css/variables.css',
+        path.base + path.productionDir + '/assets/css/variables.min.css'
+
+    ], {
+        force: true
+    });
+});
+
 
 /**
  * Copy image files
  * -----------------------------------------------------------------------------
  */
-
 gulp.task('images', function () {
     //Select files
     return gulp.src(demo ? path.developmentDir + '/images/sample/**/*' : path.developmentDir + '/images/prod/**/*')
@@ -302,11 +317,8 @@ gulp.task('server', function () {
 });
 
 //Watch for source changes and execute associated tasks
-
-
-
 gulp.watch(path.developmentDir + '/html/**', ['include']);
-gulp.watch(path.developmentDir + '/sass/**', ['sass']);
+gulp.watch(path.developmentDir + '/sass/*', ['sass']);
 gulp.watch(path.developmentDir + '/include/bootstrap/*', ['bootstrap']);
 gulp.watch(path.developmentDir + '/include/plugins-bundle.scss', ['plugins']);
 gulp.watch(path.developmentDir + '/include/icofont.scss', ['icofont']);
@@ -332,6 +344,7 @@ gulp.task('default', function (callback) {
         ['pluginsJS'],
         ['images'],
         ['vendors'],
+        ['delete'],
         ['server'],
         callback);
 });
