@@ -81,6 +81,9 @@
  .line-height-1 {
  	line-height: 1;
  }
+ .line-height-0 {
+ 	line-height: 0;
+ }
 
  .font-size-60 {
  	font-size: 60px;
@@ -104,7 +107,17 @@
  	font-family: $heading_font;
  	font-weight: 400;
  }
-
+.custom-breadcrumb{
+	.navbar-nav{
+		li{
+			&:first-child{
+				a{
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
  .logo-holder {
  	transition: all 0.2s linear;
 

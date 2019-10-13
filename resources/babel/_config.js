@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+  $('#popup').modal('show')
 
   window.addEventListener('DOMContentLoaded', (event) => {
     $('.loader').remove();

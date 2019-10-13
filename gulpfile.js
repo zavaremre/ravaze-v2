@@ -18,18 +18,14 @@ cssmin = require('gulp-cssmin')
 
 /* ========================= Babel ========================= */
 babel = require('gulp-babel')
-
 /* ========================= Image ========================= */
 imagemin = require('gulp-imagemin')
-
 /* ========================= File Name & Includes ========================= */
 rename = require('gulp-rename')
 include = require('gulp-include')
-
 /* ========================= Eror Reporting ========================= */
 del = require('del')
 /* ========================= Compaile & Server ========================= */
-
 gulpif = require('gulp-if')
 sequence = require('run-sequence')
 liveServer = require("live-server")
@@ -47,18 +43,10 @@ demo = false, //Minified file include
         productionDir: ThemeName.charAt(0).toUpperCase() + ThemeName.slice(1) + ' HTML'
     };
 
-
-gulp.task('copy', function () {
-    //Select files
-    return gulp.src(path.developmentDir + '/fonts/**')
-        //Save files
-        .pipe(gulp.dest(path.base + path.productionDir + '/assets/fonts'));
-});
-
-
-
-
-
+ /**
+ * Include html file
+ * -----------------------------------------------------------------------------
+ */
 gulp.task('include', function () {
     gulp.src(path.developmentDir + '/html/**')
         .pipe(include({
@@ -195,10 +183,11 @@ gulp.task('icofont', function () {
  * Build scripts with ES6/Babel
  * -----------------------------------------------------------------------------
  */
+ 
 
 gulp.task('pluginsJS', function () {
     //Select files
-    return gulp.src(path.developmentDir + '/babel/*')
+    return gulp.src(path.developmentDir + '/babel/**')
         //Concatenate includes
         .pipe(include())
         //Transpile
@@ -221,6 +210,7 @@ gulp.task('pluginsJS', function () {
         //Save minified file
         .pipe(gulp.dest(path.base + path.productionDir + '/assets/js'));
 });
+
 
 /**
  * Build scripts with ES6/Babel Bootstrap JS
@@ -252,12 +242,14 @@ gulp.task('bootstrapJS', function () {
         //Save minified file
         .pipe(gulp.dest(path.base + path.productionDir + '/assets/js'));
 });
+
 /**
  * Delete Production files
  * -----------------------------------------------------------------------------
  */
 gulp.task('delete', function () {
-    return del([path.base + path.productionDir + '/lib/footer',
+    return del([path.base + path.productionDir + '/lib',
+        path.base + path.productionDir + '/lib/footer',
         path.base + path.productionDir + '/lib/header',
         path.base + path.productionDir + '/lib/modals',
         path.base + path.productionDir + '/lib/product',
@@ -334,7 +326,6 @@ gulp.watch(path.developmentDir + '/vendors/**/*', ['vendors']);
 
 gulp.task('default', function (callback) {
     return sequence(
-        ['copy'],
         ['include'],
         ['sass'],
         ['bootstrap'],

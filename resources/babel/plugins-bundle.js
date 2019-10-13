@@ -15,11 +15,10 @@
 
 /* =============== Include Plugins =============== */
 
-	//=require ../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js
-	//=require ../../node_modules/owl.carousel/dist/owl.carousel.min.js
-
-/* =============== Include Plugins =============== */  
+//=require ../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js
+//=require ../../node_modules/owl.carousel/dist/owl.carousel.min.js
+/* =============== Include Plugins =============== */
 
 /* =============== Custom Include Js =============== */
-	 //=require /_config.js
-/* =============== Custom Include Js =============== */  
+//=require /_config.js
+/* =============== Custom Include Js =============== */
