@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+  $('[data-toggle="tooltip"]').tooltip();
   $('#popup').modal('show')
 
   window.addEventListener('DOMContentLoaded', (event) => {
