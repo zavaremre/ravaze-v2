@@ -14,7 +14,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
  @import "../include/bootstrap/variables";
- @import "../include/bootstrap/colors"; 
+ @import "../include/bootstrap/colors";
 
 
  $base_font : 'Open Sans';
@@ -77,10 +77,28 @@
  	background-color: lighten($primary, 10%);
 
  }
+ .tolltip-active.show {
+    display: block;
+}
+ .tolltip-active {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+	background: rgba(0, 0, 0, 0.79);
+    z-index: 99;
+    top: 5rem;
+    display: none;
+}
+
+
+ button:focus {
+ 	outline: 0!important;
+ }
 
  .line-height-1 {
  	line-height: 1;
  }
+
  .line-height-0 {
  	line-height: 0;
  }
@@ -107,17 +125,19 @@
  	font-family: $heading_font;
  	font-weight: 400;
  }
-.custom-breadcrumb{
-	.navbar-nav{
-		li{
-			&:first-child{
-				a{
-					font-weight: 600;
-				}
-			}
-		}
-	}
-}
+
+ .custom-breadcrumb {
+ 	.navbar-nav {
+ 		li {
+ 			&:first-child {
+ 				a {
+ 					font-weight: 600;
+ 				}
+ 			}
+ 		}
+ 	}
+ }
+
  .logo-holder {
  	transition: all 0.2s linear;
 
@@ -142,7 +162,7 @@
  					&:after {
  						content: '';
  						position: absolute;
- 						top: 62px;
+ 						top: 75px;
  						z-index: 9;
  						height: 3px;
  						width: 100%;
@@ -159,7 +179,7 @@
  					&:after {
  						content: '';
  						position: absolute;
- 						top: 62px;
+ 						top: 75px;
  						z-index: 9;
  						height: 3px;
  						width: 100%;
@@ -191,7 +211,7 @@
 
 
  /*Slider Config End*/
- 
+
 
  .splash-screen {
  	background: linear-gradient(45deg, $primary 5%, #FFF 5%, #fff 95%, $primary 95%, $primary 95%);
@@ -205,8 +225,8 @@
  }
 
  .carousel-navigation {
-    position: absolute;
-    left: 0;
-    bottom: 1rem;
-    z-index: 9;
-}
+ 	position: absolute;
+ 	left: 0;
+ 	bottom: 1rem;
+ 	z-index: 9;
+ }

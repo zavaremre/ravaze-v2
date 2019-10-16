@@ -15,7 +15,7 @@ const gulp = require('gulp')
 sass = require('gulp-sass')
 autoprefixer = require('gulp-autoprefixer')
 cssmin = require('gulp-cssmin')
-
+uglify = require('gulp-uglify');
 /* ========================= Babel ========================= */
 babel = require('gulp-babel')
 /* ========================= Image ========================= */
@@ -42,6 +42,17 @@ demo = false, //Minified file include
         developmentDir: 'resources',
         productionDir: ThemeName.charAt(0).toUpperCase() + ThemeName.slice(1) + ' HTML'
     };
+
+ /**
+ * Fonts html file
+ * -----------------------------------------------------------------------------
+ */
+gulp.task('copy', function () {
+    //Select files
+    return gulp.src(path.developmentDir + '/fonts/**')
+        //Save files
+        .pipe(gulp.dest(path.base + path.productionDir + '/assets/fonts'));
+});
 
  /**
  * Include html file
@@ -207,6 +218,7 @@ gulp.task('pluginsJS', function () {
         .pipe(rename({
             suffix: '.min'
         }))
+        .pipe(uglify())
         //Save minified file
         .pipe(gulp.dest(path.base + path.productionDir + '/assets/js'));
 });
@@ -239,6 +251,7 @@ gulp.task('bootstrapJS', function () {
         .pipe(rename({
             suffix: '.min'
         }))
+        .pipe(uglify())
         //Save minified file
         .pipe(gulp.dest(path.base + path.productionDir + '/assets/js'));
 });
@@ -254,7 +267,9 @@ gulp.task('delete', function () {
         path.base + path.productionDir + '/lib/modals',
         path.base + path.productionDir + '/lib/product',
         path.base + path.productionDir + '/lib/css.html',
+        path.base + path.productionDir + '/lib/seo.html',
         path.base + path.productionDir + '/lib/script.html',
+        path.base + path.productionDir + '/assets/js/.min',
         path.base + path.productionDir + '/assets/css/.min',
         path.base + path.productionDir + '/assets/css/colors.css',
         path.base + path.productionDir + '/assets/css/colors.min.css',
@@ -326,6 +341,7 @@ gulp.watch(path.developmentDir + '/vendors/**/*', ['vendors']);
 
 gulp.task('default', function (callback) {
     return sequence(
+        ['copy'],
         ['include'],
         ['sass'],
         ['bootstrap'],

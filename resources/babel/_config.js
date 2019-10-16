@@ -1,9 +1,12 @@
 'use strict';
 
 (function () {
-  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle="tooltip"]').tooltip({
+    container: 'body'
+  });
   $('#popup').modal('show')
 
+ 
   window.addEventListener('DOMContentLoaded', (event) => {
     $('.loader').remove();
   });

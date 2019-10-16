@@ -6,14 +6,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>RAVAZE</title>
-    <!--Basic seo optimization start-->
-    <meta name="title" content="SITE NAME" />
-    <meta name="description" content="SITE DESCRIPTION" />
-    <meta name="keywords" content="KEY WORDS" />
-    <meta name="author" content="SITE ADMINISTRATOR" />
-    <meta name="owner" content="SITE AUTHOR" />
-    <meta name="copyright" content="COPYRIGHT YEAR" />
-    <!--Basic seo optimization end-->
+   <!--=include ./lib/seo.html -->
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <link rel="shortcut icon" href="/img/assets/img/favicon.png" />
     <!--=include ./lib/css.html -->
@@ -21,11 +14,17 @@
 <div class="modal fade" id="popup" tabindex="-1" role="dialog" aria-labelledby="popupTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 850px;">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-flex justify-content-between align-items-center">
                 <h6 class="modal-title" id="whatsapp_modalTitle">Haftanın Makalesi</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i class="icofont-close-line icofont-1x"></i>
-                </button>
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="custom-control custom-checkbox mr-4">
+                        <input type="checkbox" class="custom-control-input" id="dontShow" checked>
+                        <label class="custom-control-label" for="dontShow">Bir Daha Gösterme</label>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="icofont-close-line icofont-1x"></i>
+                    </button>
+                </div>
             </div>
             <div class="modal-body p-0">
                 <img src="./assets/img/blog/1.jpg" class="w-100" alt="...">
