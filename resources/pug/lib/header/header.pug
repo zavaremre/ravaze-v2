@@ -1,0 +1,28 @@
+-
+    let menu =[
+        'Anasayfa',
+        'Hakkımda',
+        'Neler Yapıyorum',
+        'Referanslarım',
+        'Projeler',
+        ]
+header.main-header.border-bottom.border-gray.py-2
+    .container
+        .header-wrapper.d-flex.justify-content-between.align-items-center.w-100
+            .logo
+                a(href="#")
+                    img(src="./assets/img/logo.png", alt="",width="150px")
+            nav.navbat.nav.justify-content-center.align-items-center
+                ul.nav
+                    for m ,i in menu
+                        if(i !== 0)
+                            li.nav-item
+                                a.nav-link.text-uppercase.text-muted.p-4(href="#")=m
+                        else
+                            li.nav-item.active
+                                a.nav-link.text-uppercase.text-dark.p-4.active(href="#")=m
+            .button-holder
+                a.btn.btn-sm.btn-outline-primary.d-flex.justify-content-between.align-items-center.py-2.px-3(href="#")
+                    i.icofont-code-alt.icofont-2x.mr-2
+                    | İletişime Geç
+    

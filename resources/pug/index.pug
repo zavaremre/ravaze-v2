@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    include ./lib/seo.pug
+    include ./lib/css.pug
+  body.home
+    include ./lib/header/header.pug
+    main
+      section.slider.py-md-5
+        .container
+          .main-carousel.owl-carousel.owl-theme
+            .item
+              .carousel-content.d-flex.justify-content-between
+                .image-holder.w-100
+                  img(src="./assets/img/slider1.png", alt="")
+                .content.d-flex.flex-column.justify-content-center.align-items-center.w-100
+                  h1.font-2.text-primary Merhaba
+                  h5 Hadi Tanışalım :)
+                  p.text-muted.text-center Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto quod tempora dolore tenetur nemo minus illum quo non exercitationem est. Ut voluptatem facilis placeat culpa hic temporibus ad assumenda praesentium.
+    include ./lib/footer/footer.pug
+    include ./lib/script.pug

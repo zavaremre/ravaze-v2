@@ -15,13 +15,15 @@ const gulp = require('gulp')
 sass = require('gulp-sass')
 autoprefixer = require('gulp-autoprefixer')
 cssmin = require('gulp-cssmin')
-uglify = require('gulp-uglify');
+uglify = require('gulp-uglify')
+plumber = require('gulp-plumber')
 /* ========================= Babel ========================= */
 babel = require('gulp-babel')
 /* ========================= Image ========================= */
 imagemin = require('gulp-imagemin')
 /* ========================= File Name & Includes ========================= */
 rename = require('gulp-rename')
+formatHtml = require('gulp-format-html')
 include = require('gulp-include')
 /* ========================= Eror Reporting ========================= */
 del = require('del')
@@ -29,7 +31,7 @@ del = require('del')
 gulpif = require('gulp-if')
 sequence = require('run-sequence')
 liveServer = require("live-server")
-
+pug = require('gulp-pug');
 /*
  * Output Css & Js File Name and Set Paths
  * -----------------------------------------------------------------------------
@@ -59,13 +61,29 @@ gulp.task('copy', function () {
  * -----------------------------------------------------------------------------
  */
 gulp.task('include', function () {
-    gulp.src(path.developmentDir + '/html/**')
+    gulp.src(path.developmentDir + '/resources/**')
         .pipe(include({
             prefix: '@@',
             basepath: '@file'
         }))
+        
+        .pipe(formatHtml())
         .pipe(gulp.dest(path.base + path.productionDir));
 });
+
+
+gulp.task('pug', function buildHTML() {
+    return gulp.src(path.developmentDir + '/pug/**/*.pug')
+    .pipe(plumber())
+    .pipe(pug({
+        pretty: true
+    }))
+    .pipe(gulp.dest(path.base + path.productionDir))
+    .pipe(formatHtml())
+    .pipe(plumber.stop())
+    
+  });
+
 
 /**
  * Build styles with Style SCSS
@@ -75,6 +93,7 @@ gulp.task('include', function () {
 gulp.task('sass', function () {
     //Select files
     return gulp.src(path.developmentDir + '/sass/**')
+        .pipe(plumber())
         //Compile Sass
         .pipe(sass({
             outputStyle: 'expanded'
@@ -94,7 +113,8 @@ gulp.task('sass', function () {
             suffix: '.min'
         }))
         //Save minified file
-        .pipe(gulp.dest(path.base + path.productionDir + '/assets/css'));
+        .pipe(gulp.dest(path.base + path.productionDir + '/assets/css'))
+        .pipe(plumber.stop())
 });
 /**
  * Build styles with Bootstrap
@@ -104,6 +124,7 @@ gulp.task('sass', function () {
 gulp.task('bootstrap', function () {
     //Select files
     return gulp.src(path.developmentDir + '/include/bootstrap/*')
+    .pipe(plumber())
         //Compile Sass
         .pipe(sass({
 
@@ -124,7 +145,8 @@ gulp.task('bootstrap', function () {
             suffix: '.min'
         }))
         //Save minified file
-        .pipe(gulp.dest(path.base + path.productionDir + '/assets/css'));
+        .pipe(gulp.dest(path.base + path.productionDir + '/assets/css'))
+        .pipe(plumber.stop())
 });
 
 /**
@@ -135,6 +157,7 @@ gulp.task('bootstrap', function () {
 gulp.task('plugins', function () {
     //Select files
     return gulp.src(path.developmentDir + '/include/plugins-bundle.scss')
+    .pipe(plumber())
         //Compile Sass
         .pipe(sass({
 
@@ -155,7 +178,8 @@ gulp.task('plugins', function () {
             suffix: '.min'
         }))
         //Save minified file
-        .pipe(gulp.dest(path.base + path.productionDir + '/assets/css'));
+        .pipe(gulp.dest(path.base + path.productionDir + '/assets/css'))
+        .pipe(plumber.stop())
 });
 
 
@@ -167,6 +191,7 @@ gulp.task('plugins', function () {
 gulp.task('icofont', function () {
     //Select files
     return gulp.src(path.developmentDir + '/include/icofont.scss')
+    .pipe(plumber())
         //Compile Sass
         .pipe(sass({
 
@@ -187,7 +212,8 @@ gulp.task('icofont', function () {
             suffix: '.min'
         }))
         //Save minified file
-        .pipe(gulp.dest(path.base + path.productionDir + '/assets/css'));
+        .pipe(gulp.dest(path.base + path.productionDir + '/assets/css'))
+        .pipe(plumber.stop())
 });
 
 /**
@@ -199,6 +225,7 @@ gulp.task('icofont', function () {
 gulp.task('pluginsJS', function () {
     //Select files
     return gulp.src(path.developmentDir + '/babel/**')
+    .pipe(plumber())
         //Concatenate includes
         .pipe(include())
         //Transpile
@@ -220,7 +247,8 @@ gulp.task('pluginsJS', function () {
         }))
         .pipe(uglify())
         //Save minified file
-        .pipe(gulp.dest(path.base + path.productionDir + '/assets/js'));
+        .pipe(gulp.dest(path.base + path.productionDir + '/assets/js'))
+        .pipe(plumber.stop())
 });
 
 
@@ -232,6 +260,7 @@ gulp.task('pluginsJS', function () {
 gulp.task('bootstrapJS', function () {
     //Select files
     return gulp.src(path.developmentDir + '/babel/bootstrap.js')
+    .pipe(plumber())
         //Concatenate includes
         .pipe(include())
         //Transpile
@@ -253,7 +282,8 @@ gulp.task('bootstrapJS', function () {
         }))
         .pipe(uglify())
         //Save minified file
-        .pipe(gulp.dest(path.base + path.productionDir + '/assets/js'));
+        .pipe(gulp.dest(path.base + path.productionDir + '/assets/js'))
+        .pipe(plumber.stop())
 });
 
 /**
@@ -290,7 +320,16 @@ gulp.task('images', function () {
     //Select files
     return gulp.src(demo ? path.developmentDir + '/images/sample/**/*' : path.developmentDir + '/images/prod/**/*')
         //ImageMin
-        .pipe(imagemin())
+        .pipe(imagemin({
+            interlaced: true,
+            progressive: true,
+            optimizationLevel: 5,
+            svgoPlugins: [
+                {
+                    removeViewBox: true
+                }
+            ]
+        }))
         //Save files
         .pipe(gulp.dest(demo ? path.base + path.productionDir + '/assets/img/sample' : path.base + path.productionDir + '/assets/img'))
 });
@@ -324,7 +363,7 @@ gulp.task('server', function () {
 });
 
 //Watch for source changes and execute associated tasks
-gulp.watch(path.developmentDir + '/html/**', ['include']);
+gulp.watch(path.developmentDir + '/pug/**/*.pug', ['pug']);
 gulp.watch(path.developmentDir + '/sass/*', ['sass']);
 gulp.watch(path.developmentDir + '/include/bootstrap/*', ['bootstrap']);
 gulp.watch(path.developmentDir + '/include/plugins-bundle.scss', ['plugins']);
@@ -341,15 +380,16 @@ gulp.watch(path.developmentDir + '/vendors/**/*', ['vendors']);
 
 gulp.task('default', function (callback) {
     return sequence(
-        ['copy'],
         ['include'],
+        ['copy'],
+        ['pug'],
         ['sass'],
         ['bootstrap'],
         ['plugins'],
         ['icofont'],
         ['bootstrapJS'],
         ['pluginsJS'],
-        ['images'],
+       //  ['images'],  
         ['vendors'],
         ['delete'],
         ['server'],

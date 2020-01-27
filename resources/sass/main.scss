@@ -24,30 +24,7 @@
  $footerHeight:73px;
 
 
- html.home {
- 	height: calc(100% - 157px);
 
- 	body {
- 		height: $height100;
-
- 		main {
- 			height: $height100;
-
- 			section {
- 				height: $height100;
-
- 				.container {
- 					height: $height100;
-
- 					.row {
- 						height: $height100;
-
- 					}
- 				}
- 			}
- 		}
- 	}
- }
 
  body {
  	font-size: 14px;
@@ -109,6 +86,10 @@
  	font-size: 60px;
  }
 
+ .rounded-100 {
+ 	border-radius: 100px !important;
+ }
+
  .loader {
  	position: fixed;
  	width: 100%;
@@ -164,10 +145,12 @@
  					&:after {
  						content: '';
  						position: absolute;
- 						top: 75px;
- 						z-index: 9;
- 						height: 3px;
- 						width: 100%;
+						 top: 72px;
+						 left: 0;
+						 height: 3px;
+						 width: 100%;
+						 z-index: 9;
+						 content: '';
  						background: $primary;
  					}
  				}
@@ -181,10 +164,12 @@
  					&:after {
  						content: '';
  						position: absolute;
- 						top: 75px;
- 						z-index: 9;
+ 						top: 72px;
+ 						left: 0;
  						height: 3px;
  						width: 100%;
+ 						z-index: 9;
+ 						content: '';
  						background: $primary;
  					}
  				}
@@ -216,7 +201,41 @@
 
 
  .splash-screen {
- 	background: linear-gradient(45deg, $primary 5%, #FFF 5%, #fff 95%, $primary 95%, $primary 95%);
+ 	height: 490px;
+ 	background-size: cover;
+ 	background-position: center center;
+
+ 	.main-carousel {
+ 		height: 100%;
+
+ 		.owl-stage-outer {
+ 			height: 100%;
+
+ 			.owl-stage {
+ 				height: 100%;
+
+ 				.owl-item {
+ 					height: 100%;
+
+ 					.item {
+ 						height: 100%;
+
+ 						.image {
+ 							img {
+ 								width: 100%;
+ 							}
+ 						}
+ 					}
+ 				}
+ 			}
+ 		}
+ 	}
+
+ 	.slider-content {
+ 		h2 {
+ 			 
+ 		}
+ 	}
  }
 
  .social-media {
@@ -243,17 +262,24 @@
  	height: 100%;
 
  	.portfolio {
- 		height: 18rem;
- 		width: 100%;
- 		overflow: hidden;
- 		padding: 2rem;
- 		background: radial-gradient(white, #b5b5b5);
  		position: relative;
+ 		background: $primary;
+ 		overflow: hidden;
 
- 		img {
+ 		&:after {
+ 			content: '';
+ 			width: 100%;
+ 			height: 27px;
+ 			background: $primary;
  			position: absolute;
  			left: 0;
- 			padding: 2rem;
+ 			bottom: 0;
+ 			transform: rotate(-4deg);
+ 		}
+
+ 		img {
+ 			padding: 1rem;
+ 			border-radius: 4px;
  		}
  	}
  }
