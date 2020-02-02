@@ -17,6 +17,10 @@
 
 //=require ../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js
 //=require ../../node_modules/owl.carousel/dist/owl.carousel.min.js
+//=require ../../node_modules/fullpage.js/vendors/scrolloverflow.js
+//=require ../../node_modules/fullpage.js/vendors/easings.js
+//=require ../../node_modules/fullpage.js/dist/fullpage.js
+ 
 /* =============== Include Plugins =============== */
 
 /* =============== Custom Include Js =============== */
