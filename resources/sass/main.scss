@@ -18,41 +18,46 @@
 
 
  $base_font : 'Open Sans';
- $heading_font : 'Zilla Slab';
+ $heading_font : 'Amatic SC';
  $height100: 100%;
  $headerHeight:166px;
  $footerHeight:73px;
+ //font-family: 'Amatic SC', cursive;
+ // font-family: 'Dosis', sans-serif;
 
-
-html{
-	height: 100%;
-}
+ html {
+ 	height: 100%;
+ }
 
  body {
  	font-size: 14px;
  	line-height: 1.8;
  	background-color: $white;
- 	color: #758294;
+ 	color: #555;
  	font-family: $base_font;
-	&.home{
-	 
-	}
+
+ 	&.home {}
  }
- @keyframes blop{
-	 from{
-		 transform: translateY(-3px);
-	 }
-	 to{
-		transform: translateY(3px);
-	 }
+
+ @keyframes blop {
+ 	from {
+ 		transform: translateY(-3px);
+ 	}
+
+ 	to {
+ 		transform: translateY(3px);
+ 	}
  }
-.discovery-btn{
-	width: 50px;
-	height: 50px;
-	i{
-		animation: blop 0.5s linear  infinite alternate;
-	}
-}
+
+ .discovery-btn {
+ 	width: 50px;
+ 	height: 50px;
+
+ 	i {
+ 		animation: blop 0.5s linear infinite alternate;
+ 	}
+ }
+
  ::selection {
  	color: $white;
  	background-color: $primary;
@@ -99,7 +104,18 @@ html{
  .line-height-0 {
  	line-height: 0;
  }
-
+.top-0{
+	top:0;
+}
+.bottom-0{
+	bottom: 0;
+}
+.right-0{
+	right: 0;
+}
+.left-0{
+	left: 0;
+}
  .font-size-60 {
  	font-size: 60px;
  }
@@ -107,9 +123,11 @@ html{
  .rounded-100 {
  	border-radius: 100px !important;
  }
-.text-shadow{
-	text-shadow: -4px 5px #00ffda;
-}
+
+ .text-shadow {
+ 	text-shadow: -4px 5px #00ffda;
+ }
+
  .loader {
  	position: fixed;
  	width: 100%;
@@ -155,30 +173,18 @@ html{
 
  /*Navbar start */
  .main-navbar {
- 	.navbar-nav {
+ 	.nav {
  		.nav-item {
- 			&.active {
- 				a {
- 					color: $primary;
- 					position: relative;
-
- 					&:after {
- 						content: '';
- 						position: absolute;
-						 top: 72px;
-						 left: 0;
-						 height: 3px;
-						 width: 100%;
-						 z-index: 9;
-						 content: '';
- 						background: $primary;
- 					}
+ 			a {
+ 				&:after {
+					 content: '';
+					 transition: all 0.5s linear;
+					 transform: scaleX(0);
  				}
  			}
 
- 			&:hover {
+ 			&.active {
  				a {
- 					color: $primary;
  					position: relative;
 
  					&:after {
@@ -190,23 +196,9 @@ html{
  						width: 100%;
  						z-index: 9;
  						content: '';
- 						background: $primary;
+						 background: darken($primary , 10%);
+						 transform: scaleX(1);
  					}
- 				}
- 			}
-
- 			.nav-link {
- 				transition: all 0.2s linear;
-
- 				&:hover {
- 					i {
-
- 						transform: scale(1.2);
- 					}
- 				}
-
- 				i {
- 					transition: all 0.2s linear;
  				}
  			}
  		}
@@ -252,9 +244,7 @@ html{
  	}
 
  	.slider-content {
- 		h2 {
- 			 
- 		}
+ 		h2 {}
  	}
  }
 

@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+  
   $('[data-toggle="tooltip"]').tooltip({
     container: 'body'
   });
@@ -143,7 +144,7 @@
     //Navigation
     menu: '#menu',
     lockAnchors: false,
-    anchors:['firstPage', 'secondPage'],
+    //anchors:['merhaba', 'ben-kimim', 'neler-yapiyorum', 'referanslarim', 'bana-ulasin'],
     navigation: false,
     navigationPosition: 'right',
     navigationTooltips: ['firstSlide', 'secondSlide'],
@@ -153,7 +154,7 @@
   
     //Scrolling
     css3: true,
-    scrollingSpeed: 700,
+    scrollingSpeed: 400,
     autoScrolling: true,
     fitToSection: true,
     fitToSectionDelay: 1000,
@@ -218,8 +219,10 @@
 	$.fn.fullpage.setAllowScrolling(false);
   //methods
   fullpage_api.setAllowScrolling(false);
+
   window.addEventListener('DOMContentLoaded', (event) => {
     $('.loader').remove();
   });
+
 
 })();

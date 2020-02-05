@@ -2,37 +2,33 @@
     let menu =[
         {
             title : 'Merhaba',
-            link : '#anasayfa',
+            data_anchor : 'merhaba',
         },
         {
             title : 'Ben Kimim',
-            link : '#hakkimda',
+            data_anchor : 'ben-kimim',
         },
         {
             title : 'Neler Yapıyorum',
-            link : '#neler-yapiyorum',
+            data_anchor : 'neler-yapiyorum',
         },
         {
             title : 'Referanslarım',
-            link : '#referanslarim',
+            data_anchor : 'referanslarim',
         },
         {
             title : 'Bana Ulaşın',
-            link : '#bana-ulasin',
+            data_anchor : 'bana-ulasin',
         },
     ];
-header.main-header.bg-white.position-fixed.fixed-top.border-bottom.border-gray.py-2
+header.main-header.bg-white.position-fixed.fixed-top.border-bottom.border-gray
     .container
         .header-wrapper.d-flex.flex-column.justify-content-between.align-items-center.w-100
             .logo.py-3
-                a(href="#")
+                a(href='#merhaba')
                     img(src="./assets/img/logo.png" alt="Ravaze Logo" width="150px")
-            nav.navbat.nav.justify-content-center.align-items-center
-                ul.nav
+            nav.main-navbar.navbar.nav.justify-content-center.align-items-center.p-0
+                ul.nav#menu
                     for m ,i in menu
-                        if(i !== 0)
-                            li.nav-item
-                                a.nav-link.text-uppercase.text-muted.p-4(href=m.link)=m.title
-                        else
-                            li.nav-item.active
-                                a.nav-link.text-uppercase.text-dark.p-4.active(href=m.link)=m.title
+                            li.nav-item(data-menuanchor=m.data_anchor)
+                                a.nav-link.text-uppercase.text-muted.p-4(href='#'+m.data_anchor)=m.title
