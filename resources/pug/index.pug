@@ -95,7 +95,12 @@ html(lang="tr")
                 h6.text-dark Tasarım
                 p.text-muted.small Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque, earum cumque. Est accusantium ab saepe qui! Deleniti voluptatum libero sequi rerum placeat consequuntur minima nisi, omnis quo laudantium, beatae assumenda.
       section.section(data-anchor="referanslarim")
-        |referanslarım
+        .row.mx-5(style="margin-top:12rem;margin-bottom:12rem")
+          - for (var i = 1; i < 36; i++)
+            .col-12.col-sm-2.col-md-2
+              .border.border-gray.p-3.mb-4
+                a(href="./assets/img/ref/origin/"+i+'.jpg',data-fancybox="referanslar")
+                  img(src="./assets/img/ref/"+i+'.png', alt=i).w-100
       section.section(data-anchor="bana-ulasin")
         |bana ulaşın
       include ./lib/footer/footer.pug

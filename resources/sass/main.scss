@@ -186,7 +186,7 @@
  			&.active {
  				a {
  					position: relative;
-
+					color: darken($primary , 10%)!important;
  					&:after {
  						content: '';
  						position: absolute;
