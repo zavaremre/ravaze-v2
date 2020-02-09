@@ -204,21 +204,10 @@
     slideSelector: '.slide',
   
     lazyLoading: true,
-  
-    //events
-    onLeave: function(origin, destination, direction){},
-    afterLoad: function(origin, destination, direction){},
-    afterRender: function(){},
-    afterResize: function(width, height){},
-    afterReBuild: function(){},
-    afterResponsive: function(isResponsive){},
-    afterSlideLoad: function(section, origin, destination, direction){},
-    onSlideLeave: function(section, origin, destination, direction){}
+ 
   });
-	//methods
-	$.fn.fullpage.setAllowScrolling(false);
-  //methods
-  fullpage_api.setAllowScrolling(false);
+ 
+	 
 
   window.addEventListener('DOMContentLoaded', (event) => {
     $('.loader').remove();

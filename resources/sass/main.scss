@@ -60,7 +60,7 @@
 
  ::selection {
  	color: $white;
- 	background-color: $primary;
+ 	background-color: $secondary;
  }
 
  ::-webkit-scrollbar-track {
@@ -104,20 +104,34 @@
  .line-height-0 {
  	line-height: 0;
  }
-.top-0{
-	top:0;
-}
-.bottom-0{
-	bottom: 0;
-}
-.right-0{
-	right: 0;
-}
-.left-0{
-	left: 0;
-}
+
+ .top-0 {
+ 	top: 0;
+ }
+
+ .bottom-0 {
+ 	bottom: 0;
+ }
+
+ .right-0 {
+ 	right: 0;
+ }
+
+ .left-0 {
+ 	left: 0;
+ }
+
  .font-size-60 {
  	font-size: 60px;
+ }
+
+ .font-size-12 {
+ 	font-size: 12px !important;
+ }
+
+ .font-weight-900 {
+ 	font-weight: 900 !important;
+ 	;
  }
 
  .rounded-100 {
@@ -177,16 +191,18 @@
  		.nav-item {
  			a {
  				&:after {
-					 content: '';
-					 transition: all 0.5s linear;
-					 transform: scaleX(0);
+ 					content: '';
+ 					transition: all 0.5s linear;
+ 					transform: scaleX(0);
  				}
  			}
 
  			&.active {
  				a {
  					position: relative;
-					color: darken($primary , 10%)!important;
+					 color: darken($primary, 10%) !important;
+					 font-weight: 700;
+
  					&:after {
  						content: '';
  						position: absolute;
@@ -196,8 +212,8 @@
  						width: 100%;
  						z-index: 9;
  						content: '';
-						 background: darken($primary , 10%);
-						 transform: scaleX(1);
+ 						background: darken($primary, 10%);
+ 						transform: scaleX(1);
  					}
  				}
  			}

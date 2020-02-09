@@ -14,10 +14,12 @@ html(lang="tr")
                 .row.justify-content-between.align-items-center
                   .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
                     .content.d-flex.flex-column.justify-content-center.align-items-end.w-100
-                      h1.display-4.font-2.font-weight-bold.text-dark.text-shadow.line-height-1.mb-2 Hey Merhaba !
-                      h5.font-2.font-weight-light.mb-2 ben ,
-                        strong.font-weight-bold Emre Zavar
-                      .divider.mb-2
+                      h1.display-4.font-weight-light.text-dark.line-height-1.mb-2
+                        strong.heading-first-word.font-weight-900.mr-2 Hey 
+                        |Merhaba !
+                      h2.font-weight-light.mb-2 ben ,
+                        strong.font-weight-900 Emre Zavar
+                      .divider.my-4
                         img(src="./assets/img/divider.svg" alt="" style="width:115px;")
                       p.text-muted.text-right.small Ravaze olarak web tasarım dünyasına yeni bir değer katmak için yola çıktık. Bu anlamda genç ve dinamik ekibimizle beraber yaratıcılık sınırlarını zorluyoruz. Çünkü biz, farklı olmanın değer yaratmak için gerekli olduğunun bilincindeyiz. Günümüz tasarım teknolojisine uygun, mobil uyumlu, kurumsal kimliğinizi haykıran ve ziyaretçi deneyimini arttıran web tasarım çözümleriyle farkı, yani değeri ortaya koyuyoruz. 
                   .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
@@ -25,7 +27,7 @@ html(lang="tr")
                       img(src="./assets/img/slider1.png" alt="").w-auto.mw-100
         .d-flex.justify-content-center.align-items-center.w-100.position-absolute.fixed-bottom.mb-5.pb-5
           a(href="#ben-kimim").discovery-btn.btn.btn-outline-primary.rounded-circle.d-flex.justify-content-center.align-items-center.line-height-0
-            i.icofont-thin-down.icofont-2x.mt-1
+            i.icofont-hand-down.icofont-2x.mt-1
       section.section(data-anchor="ben-kimim")
         .container
           .row.justify-content-between.align-items-center
@@ -34,9 +36,11 @@ html(lang="tr")
                 img(src="https://render.bitstrips.com/v2/cpanel/011cb6f0-ec8a-4508-b381-7e38b5a2e96c-1dcedf6a-beb5-41e5-95f5-d1c6e50812c5-v1.png?transparent=1&palette=1", alt="")
             .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
               .d-flex.flex-column.justify-content-center.align-items-start.w-100
-                h1.display-4.font-2.font-weight-bold.text-dark.text-shadow.line-height-1.mb-2 Ben Kimim ?
-                .divider.mb-2
-                img(src="./assets/img/divider.svg" alt="" style="width:115px;")
+                h1.display-4.font-weight-light.text-dark.line-height-1.mb-2 
+                  strong.heading-first-word.font-weight-900.mr-2 Ben
+                  |Kimim ?
+                .divider.my-4
+                  img(src="./assets/img/divider.svg" alt="" style="width:115px;")
                 | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro eos, quos maxime tempore officiis praesentium fugit dolore, voluptas a, ad placeat harum rerum fugiat quas officia saepe voluptatum voluptatibus corrupti?
       section.section(data-anchor="neler-yapiyorum")
         .container
@@ -87,8 +91,10 @@ html(lang="tr")
                     div.progress-bar.bg-dark.rounded-lg(style="width: 65%"  ,aria-valuenow="25" ,aria-valuemin="0" ,aria-valuemax="100") 65%
             .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
               div.pl-5.ml-5 
-                h1.display-4.font-2.font-weight-bold.text-dark.text-shadow.line-height-1.mb-2 Kulandığım diller & teknolojiler
-                .divider.mb-2
+                h1.display-4.font-weight-light.text-dark.line-height-1.mb-2
+                  strong.heading-first-word.font-weight-900.mr-2 Kulandığım diller & 
+                  |teknolojiler
+                .divider.my-4
                   img(src="./assets/img/divider.svg" alt="" style="width:115px;")
                 h6.text-dark Yazılım
                 p.text-muted.small rem ipsum dolor sit amet, consectetur adipisicing elit. Esse repudiandae facere maiores natus consectetur at doloribus corporis. At, ex voluptatum nostrum tempore pariatur officia, soluta, mollitia assumenda perferendis corrupti veniam?
@@ -102,6 +108,76 @@ html(lang="tr")
                 a(href="./assets/img/ref/origin/"+i+'.jpg',data-fancybox="referanslar")
                   img(src="./assets/img/ref/"+i+'.png', alt=i).w-100
       section.section(data-anchor="bana-ulasin")
-        |bana ulaşın
+        .container
+          .row
+            .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
+              div.pl-5.ml-5 
+              h1.display-4.font-weight-light.text-dark.line-height-1.mb-2
+                strong.heading-first-word.font-weight-900.mr-2 Sosyal
+                |Medya
+              .divider.my-4
+                img(src="./assets/img/divider.svg" alt="" style="width:115px;")
+              .social.d-flex.flex-nowrap.flex-column.justify-content-center.align-items-start
+                .row
+                  .col-sm-4.col-md-4.col-lg-4.pb-3
+                    a(href="#").btn.btn-sm.btn-outline-facebook.w-100.p-3.rounded-0
+                      i.icofont.icofont-facebook.icofont-2x.mr-3
+                      |Facebook
+                  .col-sm-4.col-md-4.col-lg-4.pb-3
+                    a(href="#").btn.btn-sm.btn-outline-twitter.w-100.p-3.rounded-0
+                      i.icofont.icofont-twitter.icofont-2x.mr-3
+                      |Twitter
+                  .col-sm-4.col-md-4.col-lg-4.pb-3
+                    a(href="#").btn.btn-sm.btn-outline-instagrammagenta.w-100.p-3.rounded-0
+                      i.icofont.icofont-instagram.icofont-2x.mr-3
+                      |Instagram
+                  .col-sm-4.col-md-4.col-lg-4.pb-3
+                    a(href="#").btn.btn-sm.btn-outline-linkedin.w-100.p-3.rounded-0
+                      i.icofont.icofont-linkedin.icofont-2x.mr-3
+                      |Linkedin
+                  .col-sm-4.col-md-4.col-lg-4.pb-3
+                    a(href="#").btn.btn-sm.btn-outline-pinterest.w-100.p-3.rounded-0
+                      i.icofont.icofont-pinterest.icofont-2x.mr-3
+                      |Pinterest
+                  .col-sm-4.col-md-4.col-lg-4.pb-3
+                    a(href="#").btn.btn-sm.btn-outline-whatsappgreen.w-100.p-3.rounded-0
+                      i.icofont.icofont-whatsapp.icofont-2x.mr-3
+                      |WhatsApp
+                  .col-sm-4.col-md-4.col-lg-4.pb-3
+                    a(href="#").btn.btn-sm.btn-outline-dark.w-100.p-3.rounded-0
+                      i.icofont.icofont-code-alt.icofont-2x.mr-3
+                      |Codepen
+                  .col-sm-4.col-md-4.col-lg-4.pb-3
+                    a(href="#").btn.btn-sm.btn-outline-dark.w-100.p-3.rounded-0
+                      i.icofont.icofont-github.icofont-2x.mr-3
+                      |Github
+                  .col-sm-4.col-md-4.col-lg-4.pb-3
+                    a(href="#").btn.btn-sm.btn-outline-dark.w-100.p-3.rounded-0
+                      i.icofont.icofont-envato.icofont-2x.mr-3
+                      |Envato
+            .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6.position-static
+              .pl-md-5.ml-md-5
+                h1.display-4.font-weight-light.text-dark.line-height-1.mb-2
+                  strong.heading-first-word.font-weight-900.mr-2 İletişime
+                  |Geç
+                .divider.my-4
+                  img(src="./assets/img/divider.svg" alt="" style="width:115px;")
+                div.d-flex.flex-column.justify-content-between.align-items-start.w-100.mb-3
+                  h5.mb-0
+                    |EMRE ZAVAR
+                  small.font-size-12.text-muted
+                    |Front End Developer
+                div.d-flex.justify-content-between.align-items-center.w-100.mb-3.border-bottom.border-gray.pb-3
+                  span Telefon No:
+                  a(href="tel:+905063869319").text-dark.font-weight-bold 506 386 93 19
+                div.d-flex.justify-content-between.align-items-center.w-100.mb-3.border-bottom.border-gray.pb-3
+                  span E-Posta:
+                  a(href="mailto:info@ravaze.com").text-dark.font-weight-bold info@ravaze.com
+                div.d-flex.justify-content-between.align-items-center.w-100.mb-3
+                  span E-Posta:
+                  a(href="mailto:zavaremre@gmail.com").text-dark.font-weight-bold zavaremre@gmail.com
+                div.d-flex.justify-content-center.align-items-center.position-absolute.bottom-0.left-0
+                  img(src="https://render.bitstrips.com/v2/cpanel/c7cb9dee-3c6f-488e-96e3-76db13f87c0d-1dcedf6a-beb5-41e5-95f5-d1c6e50812c5-v1.png?transparent=1&palette=1", alt="")
+               
       include ./lib/footer/footer.pug
     include ./lib/script.pug
