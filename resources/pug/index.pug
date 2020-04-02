@@ -7,80 +7,58 @@ html(lang="tr")
     include ./lib/header/header.pug
     main#fullpage
       section.section(data-anchor="merhaba")
-        section.slider.py-md-5
-          .container
-            .main-carousel.owl-carousel.owl-theme
+        section.slider.pt-md-5.h-100
+          .container.h-100
+            .main-carousel.owl-carousel.owl-theme.h-100
               .item
-                .row.flex-column-reverse.flex-md-row.justify-content-between.align-items-center
+                .row.justify-content-between.align-items-center.h-100
                   .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
                     .content.d-flex.flex-column.justify-content-center.align-items-center.align-items-md-end.w-100
-                      h1.display-4.font-weight-light.text-dark.line-height-1.mb-2
-                        strong.heading-first-word.font-weight-900.mr-2 Hey 
-                        |Merhaba !
-                      h2.font-weight-light.mb-2 ben ,
-                        strong.font-weight-900 Emre Zavar
+                      h1.display-4.font-weight-light.text-dark.line-height-1.mb-2 
+                        strong.heading-first-word.font-weight-900.mr-2 Hey
+                        |Merhaba 
+                      small.font-italic Benim Hakkımda
                       .divider.my-4
                         img(src="./assets/img/divider.svg" alt="" style="width:115px;")
-                      p.text-muted.text-right.small Ravaze olarak web tasarım dünyasına yeni bir değer katmak için yola çıktık. Bu anlamda genç ve dinamik ekibimizle beraber yaratıcılık sınırlarını zorluyoruz. Çünkü biz, farklı olmanın değer yaratmak için gerekli olduğunun bilincindeyiz. Günümüz tasarım teknolojisine uygun, mobil uyumlu, kurumsal kimliğinizi haykıran ve ziyaretçi deneyimini arttıran web tasarım çözümleriyle farkı, yani değeri ortaya koyuyoruz. 
+                      p.text-muted.text-right.font-size-16.font-weight-300.font-3.line-height-1-5 Ravaze olarak web tasarım dünyasına yeni bir değer katmak için yola çıktık. Bu anlamda genç ve dinamik ekibimizle beraber yaratıcılık sınırlarını zorluyoruz. Çünkü biz, farklı olmanın değer yaratmak için gerekli olduğunun bilincindeyiz. Günümüz tasarım teknolojisine uygun, mobil uyumlu, kurumsal kimliğinizi haykıran ve ziyaretçi deneyimini arttıran web tasarım çözümleriyle farkı, yani değeri ortaya koyuyoruz. 
                   .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
-                    .image-holder.d-flex.justify-content-center.justify-content-md-end.align-items-center.w-100
-                      img(src="./assets/img/slider1.png" alt="").w-auto.mw-100
+                    .image-holder.w-100.ml-5
+                      img(src="./assets/img/slider1.png" alt="" )
         .d-flex.justify-content-center.align-items-center.w-100.position-absolute.fixed-bottom.mb-5.pb-5
-          a(href="#ben-kimim").discovery-btn.btn.btn-outline-primary.rounded-circle.d-flex.justify-content-center.align-items-center.line-height-0
-            i.icofont-hand-down.icofont-2x.mt-1
+          a(href="#ben-kimim").discovery-btn.btn.btn-outline-info.bg-white.text-info.rounded-circle.d-flex.justify-content-center.align-items-center.line-height-0
+            i.icofont-rounded-down.icofont-2x.mt-1
+          .pulse-bg.p-3.position-absolute.rounded-circle
+          .pulse-bg-2.p-3.position-absolute.rounded-circle
       section.section(data-anchor="ben-kimim")
-        .container
-          .row.justify-content-between.align-items-center
-            .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              .d-flex.flex-column.justify-content-center.align-items-center.align-items-md-start.w-100
-                img(src="https://render.bitstrips.com/v2/cpanel/011cb6f0-ec8a-4508-b381-7e38b5a2e96c-1dcedf6a-beb5-41e5-95f5-d1c6e50812c5-v1.png?transparent=1&palette=1" alt="")
-            .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              .d-flex.flex-column.justify-content-center.align-items-center.align-items-md-start.w-100
+        .container.h-100
+          .row.justify-content-between.align-items-center.h-100
+            .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6.h-100
+              .d-flex.flex-column.justify-content-center.align-items-end.w-100.h-100.mr-5
+                img(src="./assets/img/flat-2.png" alt="" width="300px")
+            .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6.h-100
+              .d-flex.flex-column.justify-content-center.align-items-center.align-items-md-start.w-100.h-100
                 h1.display-4.font-weight-light.text-dark.line-height-1.mb-2 
                   strong.heading-first-word.font-weight-900.mr-2 Ben
                   |Kimim ?
+                small.font-italic Benim Hakkımda
                 .divider.my-4
                   img(src="./assets/img/divider.svg" alt="" style="width:115px;")
-                p.text-muted.text-left.small
+                p.text-muted.text-left.font-size-16.font-weight-300.font-3.line-height-1-5
                   | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro eos, quos maxime tempore officiis praesentium fugit dolore, voluptas a, ad placeat harum rerum fugiat quas officia saepe voluptatum voluptatibus corrupti?
       section.section(data-anchor="neler-yapiyorum")
         .container
-          .position-absolute.right-0.bottom-0
-            img(src="https://render.bitstrips.com/v2/cpanel/31ae76e5-2eee-4dc9-8ed5-b612fad732e7-1dcedf6a-beb5-41e5-95f5-d1c6e50812c5-v1.png?transparent=1&palette=1" alt="")
           .row.mt-5.pt-5
             .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              .row.align-items-center.h-100
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Html
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Css
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Js
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Php
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Sass
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Pug
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Angular.js / Vue.js
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Wordpress
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Photoshop
-                .col-4.col-sm-6.col-md-6.col-lg-6  
-                  span.d-flex.border.border-gray.text-uppercase.font-weight-bold.p-3.mb-4 Illustrator
-            .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              div.pl-md-5.ml-md-5 
+              div.text-right.mr-5
                 h1.display-4.font-weight-light.text-dark.line-height-1.mb-2
                   strong.heading-first-word.font-weight-900.mr-2 Kulandığım diller & 
                   |teknolojiler
+                small.font-italic Benim Hakkımda
                 .divider.my-4
                   img(src="./assets/img/divider.svg" alt="" style="width:115px;")
-                h6.text-dark Yazılım
-                p.text-muted.small rem ipsum dolor sit amet, consectetur adipisicing elit. Esse repudiandae facere maiores natus consectetur at doloribus corporis. At, ex voluptatum nostrum tempore pariatur officia, soluta, mollitia assumenda perferendis corrupti veniam?
-                h6.text-dark Tasarım
-                p.text-muted.small Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque, earum cumque. Est accusantium ab saepe qui! Deleniti voluptatum libero sequi rerum placeat consequuntur minima nisi, omnis quo laudantium, beatae assumenda.
+                p.text-muted.font-size-16.font-weight-300.font-3.line-height-1-5 rem ipsum dolor sit amet, consectetur adipisicing elit. Esse repudiandae facere maiores natus consectetur at doloribus corporis. At, ex voluptatum nostrum tempore pariatur officia, soluta, mollitia assumenda perferendis corrupti veniam?
+            .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
+               img(src="./assets/img/flat-3.png" alt="" style="width:350px;")
       section.section(data-anchor="referanslarim")
         .container(style="padding-top:12rem")
           h1.display-4.font-weight-light.text-dark.line-height-1.mb-2 
@@ -88,9 +66,9 @@ html(lang="tr")
             |Referanslarım
             .divider.my-4
                 img(src="./assets/img/divider.svg" alt="" style="width:115px;")
-          | Diğer çalışmalarım ve projelerim için referans talebinde bulunabilirisniz.
+          p.font-size-16.font-weight-300.font-3.line-height-1-5 Diğer çalışmalarım ve projelerim için referans talebinde bulunabilirisniz.
         .row.mx-5.mt-4
-          - for (var i = 1; i < 36; i++)
+          - for (var i = 1; i < 42; i++)
             .col-6.col-sm-4.col-md-2
               .border.border-gray.p-3.mb-4
                 a(href="./assets/img/ref/origin/"+i+'.jpg' data-fancybox="referanslar")

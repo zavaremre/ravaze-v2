@@ -190,7 +190,7 @@ $paragraph-margin-bottom:   1rem !default;
 
 $grid-breakpoints: (
   xs: 0,
-  sm: 1200px,
+  sm: 768px,
   md: 1366px,
   lg: 1920px,
   xl: 3840px
@@ -299,7 +299,7 @@ $headings-color:              inherit !default;
 $display1-size:               6rem !default;
 $display2-size:               5.5rem !default;
 $display3-size:               4.5rem !default;
-$display4-size:               3.5rem !default;
+$display4-size:               2rem !default;
 
 $display1-weight:             300 !default;
 $display2-weight:             300 !default;

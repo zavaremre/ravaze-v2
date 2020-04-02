@@ -389,7 +389,7 @@ gulp.task('default', function (callback) {
         ['icofont'],
         ['bootstrapJS'],
         ['pluginsJS'],
-       //  ['images'],  
+        ['images'],  
         ['vendors'],
         ['delete'],
         ['server'],

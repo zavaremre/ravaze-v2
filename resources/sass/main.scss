@@ -17,7 +17,10 @@
  @import "../include/bootstrap/colors";
 
 
+
  $base_font : 'Open Sans';
+ $serifFont :'Rokkitt',
+ serif;
  $heading_font : 'Amatic SC';
  $height100: 100%;
  $headerHeight:166px;
@@ -39,23 +42,52 @@
  	&.home {}
  }
 
- @keyframes blop {
- 	from {
- 		transform: translateY(-3px);
+ @keyframes pulse {
+ 	0% {
+ 		transform: scale(1.5);
  	}
 
- 	to {
- 		transform: translateY(3px);
+ 	50% {
+ 		opacity: 0.5;
  	}
+
+ 	100% {
+ 		transform: scale(5);
+ 		opacity: 0;
+ 	}
+ }
+ @keyframes pulse-2 {
+ 	0% {
+ 		transform: scale(5);
+ 	}
+
+ 	50% {
+ 		opacity: 0.5;
+ 	}
+
+ 	100% {
+ 		transform: scale(7);
+ 		opacity: 0;
+ 	}
+ }
+
+ .pulse-bg {
+ 	background-color: $info;
+ 	z-index: -1;
+ 	opacity: 1;
+ 	animation: pulse 1s ease-in infinite;
+ }
+ .pulse-bg-2 {
+ 	background-color: lighten($info, 10%);
+ 	z-index: -1;
+ 	opacity: 1;
+ 	animation: pulse 1s ease-out infinite;
  }
 
  .discovery-btn {
  	width: 50px;
  	height: 50px;
-
- 	i {
- 		animation: blop 0.5s linear infinite alternate;
- 	}
+ 	i {}
  }
 
  ::selection {
@@ -97,12 +129,16 @@
  	outline: 0 !important;
  }
 
+ .line-height-0 {
+ 	line-height: 0;
+ }
+
  .line-height-1 {
  	line-height: 1;
  }
 
- .line-height-0 {
- 	line-height: 0;
+ .line-height-1-5 {
+ 	line-height: 1.5;
  }
 
  .top-0 {
@@ -129,9 +165,16 @@
  	font-size: 12px !important;
  }
 
+ .font-size-16 {
+ 	font-size: 16px !important;
+ }
+
+ .font-weight-300 {
+ 	font-weight: 300 !important;
+ }
+
  .font-weight-900 {
  	font-weight: 900 !important;
- 	;
  }
 
  .rounded-100 {
@@ -159,6 +202,10 @@
  .font-2 {
  	font-family: $heading_font;
  	font-weight: 400;
+ }
+
+ .font-3 {
+ 	font-family: $serifFont;
  }
 
  .custom-breadcrumb {
@@ -200,8 +247,8 @@
  			&.active {
  				a {
  					position: relative;
-					 color: darken($primary, 10%) !important;
-					 font-weight: 700;
+ 					color: darken($primary, 10%) !important;
+ 					font-weight: 700;
 
  					&:after {
  						content: '';
@@ -228,39 +275,29 @@
  /*Slider Config End*/
 
 
- .splash-screen {
- 	height: 490px;
- 	background-size: cover;
- 	background-position: center center;
+ .slider {
+ 	height: 100%;
 
- 	.main-carousel {
+ 	.owl-stage-outer {
  		height: 100%;
 
- 		.owl-stage-outer {
+ 		.owl-stage {
  			height: 100%;
 
- 			.owl-stage {
+ 			.owl-item {
  				height: 100%;
 
- 				.owl-item {
+ 				.item {
  					height: 100%;
 
- 					.item {
- 						height: 100%;
-
- 						.image {
- 							img {
- 								width: 100%;
- 							}
+ 					.image-holder {
+ 						img {
+ 							width: 300px;
  						}
  					}
  				}
  			}
  		}
- 	}
-
- 	.slider-content {
- 		h2 {}
  	}
  }
 
@@ -307,5 +344,17 @@
  			padding: 1rem;
  			border-radius: 4px;
  		}
+ 	}
+ }
+
+
+ @media (max-width:1366px) {
+ 	body {
+ 		font-size: 12px;
+ 	}
+
+ 	.display-4 {
+
+ 		font-size: 2.5rem;
  	}
  }
