@@ -23,12 +23,15 @@
     ];
 header.main-header.bg-white.position-fixed.fixed-top
     .container
-        .header-wrapper.d-flex.justify-content-between.align-items-center.w-100
+        .header-wrapper.d-flex.flex-column.flex-md-row.justify.justify-content-between.align-items-center.w-100
             .logo.py-3
                 a(href='#merhaba')
                     img(src="./assets/img/logo.png" alt="Ravaze Logo" width="150px")
-            nav.main-navbar.navbar.nav.justify-content-center.align-items-center.p-0
-                ul.nav#menu
+            nav.main-navbar.navbar.nav.justify-content-start.justify-content-md-center.align-items-center.w-100.p-0
+                ul.nav#menu.align-items-center.justify-content-start.justify-content-md-center.flex-nowrap.flex-md-wrap
                     for m ,i in menu
-                            li.nav-item(data-menuanchor=m.data_anchor)
-                                a.nav-link.text-uppercase.text-muted.p-4(href='#'+m.data_anchor)=m.title
+                        li.nav-item(data-menuanchor=m.data_anchor)
+                            a.nav-link.text-muted.p-2.px-md-3.py-md-4(href='#'+m.data_anchor)=m.title
+                    li
+                        a.btn.btn-outline-primary.btn-sm.ml-3(href="") Freelance
+                            span.bg-primary.text-white.rounded.font-weight-light.ml-2.px-2 ON

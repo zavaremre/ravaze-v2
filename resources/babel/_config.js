@@ -1,27 +1,8 @@
 'use strict';
 
 (function () {
-  
-  $('[data-toggle="tooltip"]').tooltip({
-    container: 'body'
-  });
-  $('#popup').modal('show')
  
-
-
-  for (var e = window.location.pathname, t = window.location.href, s = document.querySelectorAll(".main-navbar ul li a"), a = 0; a < s.length; a++) {
-    e == "/" + s[a].getAttribute("href") ? s[a].parentElement.classList.add("active") : "http://127.0.0.1:3000/" != t && "http://127.0.0.1:3000/" != e || s[0].parentElement.classList.add("active")
-  }
-
-  $('.logos-carousel').owlCarousel({
-    loop: false,
-    margin: 25,
-    items: 5,
-    autoplay: true,
-    autoplayTimeout: 1000,
-    autoplayHoverPause: false,
-
-  })
+ 
   $('.main-carousel').owlCarousel({
     loop: true,
     margin: 15,
@@ -156,7 +137,7 @@
     css3: true,
     scrollingSpeed: 400,
     autoScrolling: true,
-    fitToSection: true,
+    fitToSection: false,
     fitToSectionDelay: 1000,
     scrollBar: false,
     easing: 'easeInOutCubic',

@@ -11,7 +11,7 @@ html(lang="tr")
           .container.h-100
             .main-carousel.owl-carousel.owl-theme.h-100
               .item
-                .row.justify-content-between.align-items-center.h-100
+                .row.flex-column-reverse.flex-md-row.justify-content-between.align-items-center.h-100
                   .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
                     .content.d-flex.flex-column.justify-content-center.align-items-center.align-items-md-end.w-100
                       h1.display-4.font-weight-light.text-dark.line-height-1.mb-2 
@@ -22,8 +22,8 @@ html(lang="tr")
                         img(src="./assets/img/divider.svg" alt="" style="width:115px;")
                       p.text-muted.text-right.font-size-16.font-weight-300.font-3.line-height-1-5 Ravaze olarak web tasarım dünyasına yeni bir değer katmak için yola çıktık. Bu anlamda genç ve dinamik ekibimizle beraber yaratıcılık sınırlarını zorluyoruz. Çünkü biz, farklı olmanın değer yaratmak için gerekli olduğunun bilincindeyiz. Günümüz tasarım teknolojisine uygun, mobil uyumlu, kurumsal kimliğinizi haykıran ve ziyaretçi deneyimini arttıran web tasarım çözümleriyle farkı, yani değeri ortaya koyuyoruz. 
                   .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
-                    .image-holder.w-100.ml-5
-                      img(src="./assets/img/slider1.png" alt="" )
+                    .image-holder.w-100.ml-md-5
+                      img(src="./assets/img/slider1.png" alt="" ).figure-img
         .d-flex.justify-content-center.align-items-center.w-100.position-absolute.fixed-bottom.mb-5.pb-5
           a(href="#ben-kimim").discovery-btn.btn.btn-outline-info.bg-white.text-info.rounded-circle.d-flex.justify-content-center.align-items-center.line-height-0
             i.icofont-rounded-down.icofont-2x.mt-1
@@ -33,8 +33,8 @@ html(lang="tr")
         .container.h-100
           .row.justify-content-between.align-items-center.h-100
             .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6.h-100
-              .d-flex.flex-column.justify-content-center.align-items-end.w-100.h-100.mr-5
-                img(src="./assets/img/flat-2.png" alt="" width="300px")
+              .d-flex.flex-column.justify-content-center.align-items-end.w-100.h-100.mr-md-5
+                img(src="./assets/img/flat-2.png" alt="" width="300px").figure-img
             .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6.h-100
               .d-flex.flex-column.justify-content-center.align-items-center.align-items-md-start.w-100.h-100
                 h1.display-4.font-weight-light.text-dark.line-height-1.mb-2 
@@ -43,14 +43,20 @@ html(lang="tr")
                 small Benim Hakkımda
                 .divider.my-4
                   img(src="./assets/img/divider.svg" alt="" style="width:115px;")
-                p.text-muted.text-left.font-size-16.font-weight-300.font-3.line-height-1-5
+                p.text-muted.text-left.font-size-16.font-weight-300.font-3.line-height-1-5.mb-5
                   | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro eos, quos maxime tempore officiis praesentium fugit dolore, voluptas a, ad placeat harum rerum fugiat quas officia saepe voluptatum voluptatibus corrupti?
-                a.btn.btn-primary.btn-sm.rounded-0(href="") İletişime Geç
+                .btn-group
+                  a.btn.btn-outline-secondary.btn-sm.px-3.d-flex.justify-content-center.align-items-center(href="#bana-ulasin")
+                    i.icofont-mail.icofont-2x.icofont-fw.mr-2
+                    | İletişime Geç
+                  a.btn.btn-secondary.btn-sm.px-3.d-flex.justify-content-center.align-items-center(href="#bana-ulasin")
+                    i.icofont-license.icofont-2x.icofont-fw.mr-2
+                    | CV Görüntüle 
       section.section(data-anchor="neler-yapiyorum")
         .container
-          .row.mt-5.pt-5
+          .row.flex-column-reverse.flex-md-row.mt-5.pt-5
             .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              div.text-right.mr-5
+              div.text-right.mr-md-5
                 h1.display-4.font-weight-light.text-dark.line-height-1.mb-2
                   strong.heading-first-word.font-weight-900.mr-2 Kulandığım diller & 
                   |teknolojiler
@@ -59,7 +65,7 @@ html(lang="tr")
                   img(src="./assets/img/divider.svg" alt="" style="width:115px;")
                 p.text-muted.font-size-16.font-weight-300.font-3.line-height-1-5 rem ipsum dolor sit amet, consectetur adipisicing elit. Esse repudiandae facere maiores natus consectetur at doloribus corporis. At, ex voluptatum nostrum tempore pariatur officia, soluta, mollitia assumenda perferendis corrupti veniam?
             .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              img(src="./assets/img/flat-3.png" alt="" style="width:350px;")
+              img(src="./assets/img/flat-3.png" alt="" style="width:350px;").figure-img
       section.section(data-anchor="referanslarim")
         .container.mt-5.pt-5
           h1.display-4.font-weight-light.text-dark.line-height-1.mb-2 
@@ -78,7 +84,7 @@ html(lang="tr")
         .container
           .row
             .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6.position-static
-              div.d-flex.flex-column.justify-content-between.align-items-start.h-100.mr-5
+              div.d-flex.flex-column.justify-content-between.align-items-start.h-100.mr-md-5
                 .h-100
                   h1.display-4.font-weight-light.text-dark.line-height-1.mb-2
                     strong.heading-first-word.font-weight-900.mr-2 Sosyal
@@ -87,7 +93,7 @@ html(lang="tr")
                     img(src="./assets/img/divider.svg" alt="" style="width:115px;")
                   p.text-muted.text-left.font-size-16.font-weight-300.font-3.line-height-1-5
                     | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro eos, quos maxime tempore officiis praesentium fugit dolore, voluptas a, ad placeat harum rerum fugiat quas officia saepe voluptatum voluptatibus corrupti?
-                  a.btn.btn-primary.btn-sm.rounded-0(href="") İletişime Geç
+                  a.btn.btn-primary.btn-sm.rounded(href="") İletişime Geç
             .col-12.col-xs-6.col-sm-6.col-md-6.col-lg-6
               div
                 h1.display-4.font-weight-light.text-dark.line-height-1.mb-2
@@ -95,7 +101,7 @@ html(lang="tr")
                   |Geç
                 .divider.my-4
                   img(src="./assets/img/divider.svg" alt="" style="width:115px;")
-              .border.border-white.shadow-lg.p-4.m-0
+              div
                 div.d-flex.flex-column.justify-content-between.align-items-start.w-100.mb-3
                   h5.mb-0
                     |EMRE ZAVAR
@@ -103,13 +109,13 @@ html(lang="tr")
                     |Front End Developer
                 div.d-flex.justify-content-between.align-items-center.w-100.mb-3.border-bottom.border-light.pb-3
                   span Telefon No:
-                  a(href="tel:+905063869319").font-weight-bold 506 386 93 19
+                  a(href="tel:+905063869319").text-dark 506 386 93 19
                 div.d-flex.justify-content-between.align-items-center.w-100.mb-3.border-bottom.border-light.pb-3
                   span E-Posta:
-                  a(href="mailto:info@ravaze.com").font-weight-bold info@ravaze.com
+                  a(href="mailto:info@ravaze.com").text-dark info@ravaze.com
                 div.d-flex.justify-content-between.align-items-center.w-100.mb-3.border-bottom.border-light.pb-3
                   span E-Posta:
-                  a(href="mailto:zavaremre@gmail.com").font-weight-bold zavaremre@gmail.com
+                  a(href="mailto:zavaremre@gmail.com").text-dark zavaremre@gmail.com
                 .social.d-flex.flex-nowrap.flex-column.justify-content-center.align-items-center
                   .row.flex-md-nowrap.flex-wrap.btn-group.w-100
                       a(href="#" , style="width:45px;height:45px").btn.btn-outline-dark.border.border-gray.rounded-0.d-flex.justify-content-center.align-items-center

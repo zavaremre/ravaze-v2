@@ -37,7 +37,7 @@ $grays: map-merge(
   $grays   
 ); 
   
-$blue:    #505155  !default;   
+$blue:    #f49300  !default;   
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
@@ -70,7 +70,7 @@ $colors: map-merge(
 );
 
 $primary:       $blue !default;
-$secondary:    #8385e6 !default;
+$secondary:    #e83a5d !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -231,7 +231,7 @@ $border-color:                $gray-300 !default;
 
 $border-radius:               4px !default;
 $border-radius-lg:            50px !default;
-$border-radius-sm:            20px !default;
+$border-radius-sm:            5px !default;
 
 $rounded-pill:                50rem !default;
 

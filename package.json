@@ -9,7 +9,6 @@
   "author": "Emre ZAVAR",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.1",
     "del": "^3.0.0",
     "graceful-fs": "^4.1.11",
@@ -35,18 +34,26 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.3.5",
+    "babelify": "^10.0.0",
     "bootstrap": "^4.3.1",
+    "browserify": "^16.5.1",
     "css-declaration-sorter": "^4.0.1",
+    "firebase": "^7.14.2",
     "fullpage.js": "^3.0.8",
+    "gulp-browserify": "^0.5.1",
     "gulp-concat-css-import": "^1.0.5",
     "gulp-format-html": "^1.2.3",
     "gulp-minify": "^3.1.0",
     "gulp-pug": "^4.0.1",
     "gulp-sass-glob": "^1.0.9",
     "gulp-sass-import": "^1.0.0",
+    "gulp-vue-compiler": "^1.0.0-beta.1",
+    "gulp-vueify": "0.0.3",
     "node-neat": "^2.0.0-beta.0",
     "owl.carousel": "^2.3.4",
     "popper.js": "^1.15.0",
-    "tooltip.js": "^1.3.2"
+    "tooltip.js": "^1.3.2",
+    "vue": "^2.6.11",
+    "vue-firestore": "^0.3.30"
   }
 }

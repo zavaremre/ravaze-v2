@@ -11,6 +11,9 @@
 
 /* ========================= Gulp ========================= */
 const gulp = require('gulp')
+
+
+
 /* ========================= Sass ========================= */
 sass = require('gulp-sass')
 autoprefixer = require('gulp-autoprefixer')
@@ -32,6 +35,30 @@ gulpif = require('gulp-if')
 sequence = require('run-sequence')
 liveServer = require("live-server")
 pug = require('gulp-pug');
+
+//Admin Panel
+ 
+
+
+ 
+vueify = require('gulp-vueify');
+
+
+
+var browserify = require('gulp-browserify')
+
+
+
+gulp.task('browserify', function () {
+  gulp.src(path.developmentDir + '/admin/views/**/*.vue')
+    .pipe(browserify({ transform: ['vueify', 'babelify'] }))
+    .pipe(gulp.dest(path.base + path.productionDir + '/admin/views'))
+})
+
+
+
+
+
 /*
  * Output Css & Js File Name and Set Paths
  * -----------------------------------------------------------------------------
@@ -45,7 +72,7 @@ demo = false, //Minified file include
         productionDir: ThemeName.charAt(0).toUpperCase() + ThemeName.slice(1) + ' HTML'
     };
 
- /**
+/**
  * Fonts html file
  * -----------------------------------------------------------------------------
  */
@@ -56,7 +83,10 @@ gulp.task('copy', function () {
         .pipe(gulp.dest(path.base + path.productionDir + '/assets/fonts'));
 });
 
- /**
+
+
+ 
+/**
  * Include html file
  * -----------------------------------------------------------------------------
  */
@@ -66,7 +96,7 @@ gulp.task('include', function () {
             prefix: '@@',
             basepath: '@file'
         }))
-        
+
         .pipe(formatHtml())
         .pipe(gulp.dest(path.base + path.productionDir));
 });
@@ -74,15 +104,15 @@ gulp.task('include', function () {
 
 gulp.task('pug', function buildHTML() {
     return gulp.src(path.developmentDir + '/pug/**/*.pug')
-    .pipe(plumber())
-    .pipe(pug({
-        pretty: true
-    }))
-    .pipe(gulp.dest(path.base + path.productionDir))
-    .pipe(formatHtml())
-    .pipe(plumber.stop())
-    
-  });
+        .pipe(plumber())
+        .pipe(pug({
+            pretty: true
+        }))
+        .pipe(gulp.dest(path.base + path.productionDir))
+        .pipe(formatHtml())
+        .pipe(plumber.stop())
+
+});
 
 
 /**
@@ -116,6 +146,7 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(path.base + path.productionDir + '/assets/css'))
         .pipe(plumber.stop())
 });
+
 /**
  * Build styles with Bootstrap
  * -----------------------------------------------------------------------------
@@ -124,7 +155,7 @@ gulp.task('sass', function () {
 gulp.task('bootstrap', function () {
     //Select files
     return gulp.src(path.developmentDir + '/include/bootstrap/*')
-    .pipe(plumber())
+        .pipe(plumber())
         //Compile Sass
         .pipe(sass({
 
@@ -157,7 +188,7 @@ gulp.task('bootstrap', function () {
 gulp.task('plugins', function () {
     //Select files
     return gulp.src(path.developmentDir + '/include/plugins-bundle.scss')
-    .pipe(plumber())
+        .pipe(plumber())
         //Compile Sass
         .pipe(sass({
 
@@ -191,7 +222,7 @@ gulp.task('plugins', function () {
 gulp.task('icofont', function () {
     //Select files
     return gulp.src(path.developmentDir + '/include/icofont.scss')
-    .pipe(plumber())
+        .pipe(plumber())
         //Compile Sass
         .pipe(sass({
 
@@ -220,12 +251,12 @@ gulp.task('icofont', function () {
  * Build scripts with ES6/Babel
  * -----------------------------------------------------------------------------
  */
- 
+
 
 gulp.task('pluginsJS', function () {
     //Select files
     return gulp.src(path.developmentDir + '/babel/**')
-    .pipe(plumber())
+        .pipe(plumber())
         //Concatenate includes
         .pipe(include())
         //Transpile
@@ -260,7 +291,7 @@ gulp.task('pluginsJS', function () {
 gulp.task('bootstrapJS', function () {
     //Select files
     return gulp.src(path.developmentDir + '/babel/bootstrap.js')
-    .pipe(plumber())
+        .pipe(plumber())
         //Concatenate includes
         .pipe(include())
         //Transpile
@@ -324,11 +355,9 @@ gulp.task('images', function () {
             interlaced: true,
             progressive: true,
             optimizationLevel: 5,
-            svgoPlugins: [
-                {
-                    removeViewBox: true
-                }
-            ]
+            svgoPlugins: [{
+                removeViewBox: true
+            }]
         }))
         //Save files
         .pipe(gulp.dest(demo ? path.base + path.productionDir + '/assets/img/sample' : path.base + path.productionDir + '/assets/img'))
@@ -356,6 +385,8 @@ gulp.task('server', function () {
     //Create and initialize local server
     liveServer.start({
         port: 3000,
+        online: true,
+        tunnel: true,
         host: "127.0.0.1",
         root: path.base + path.productionDir,
         file: "index.html"
@@ -372,6 +403,10 @@ gulp.watch(path.developmentDir + '/babel/*', ['pluginsJS']);
 gulp.watch(path.developmentDir + '/babel/bootstrap.js', ['bootstrapJS']);
 gulp.watch(path.developmentDir + '/images/**/*', ['images']);
 gulp.watch(path.developmentDir + '/vendors/**/*', ['vendors']);
+//Admin Watch
+gulp.watch(path.developmentDir + '/admin/src/sass/*', ['admin-sass']);
+gulp.watch(path.developmentDir + '/admin/src/js/*', ['adminJS']);
+gulp.watch(path.developmentDir + '/admin/views/j*.vue', ['vue-compile']);
 
 /**
  * Default Task
@@ -380,6 +415,9 @@ gulp.watch(path.developmentDir + '/vendors/**/*', ['vendors']);
 
 gulp.task('default', function (callback) {
     return sequence(
+        ['browserify'],
+        ['admin-sass'],
+        ['adminJS'],
         ['include'],
         ['copy'],
         ['pug'],
@@ -389,9 +427,78 @@ gulp.task('default', function (callback) {
         ['icofont'],
         ['bootstrapJS'],
         ['pluginsJS'],
-        ['images'],  
+        ['images'],
         ['vendors'],
         ['delete'],
         ['server'],
         callback);
 });
+ 
+ 
+/**
+ * Build Admin styles with Style SCSS
+ * -----------------------------------------------------------------------------
+ */
+
+gulp.task('admin-sass', function () {
+    //Select files
+    return gulp.src(path.developmentDir + '/admin/src/sass/**')
+        .pipe(plumber())
+        //Compile Sass
+        .pipe(sass({
+            outputStyle: 'expanded'
+        }))
+
+        //Add vendor prefixes
+        .pipe(autoprefixer({
+            browsers: ['last 4 version'],
+            cascade: false
+        }))
+        //Save unminified file
+        .pipe(gulpif(!demo, gulp.dest(path.base + path.productionDir + '/admin/assets/css')))
+        //Optimize and minify
+        .pipe(cssmin())
+        //Append suffix
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        //Save minified file
+        .pipe(gulp.dest(path.base + path.productionDir + '/admin/assets/css'))
+        .pipe(plumber.stop())
+});
+/**
+ * Build scripts with ES6/Babel
+ * -----------------------------------------------------------------------------
+ */
+
+
+gulp.task('adminJS', function () {
+    //Select files
+    return gulp.src(path.developmentDir + '/admin/src/js/**')
+        .pipe(plumber())
+        //Concatenate includes
+        .pipe(include())
+        //Transpile
+        .pipe(babel({
+            presets: [
+                ['env', {
+                    loose: true,
+                    modules: false
+                }]
+            ] //'use-strict' deleted
+        }))
+        //Save unminified file
+        .pipe(gulpif(!demo, gulp.dest(path.base + path.productionDir + '/admin/assets/js')))
+        //Optimize and minify
+
+        //Append suffix
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        //Save minified file
+        .pipe(gulp.dest(path.base + path.productionDir + '/admin/assets/js'))
+        .pipe(plumber.stop())
+});
+
+
+ 
